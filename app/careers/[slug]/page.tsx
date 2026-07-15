@@ -2,11 +2,16 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Briefcase, MapPin, Wallet, Clock } from "lucide-react";
-import { getJobBySlug } from "@/lib/data";
+import { getJobBySlug, getJobs } from "@/lib/data";
 import ApplyForm from "@/components/careers/ApplyForm";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  const jobs = await getJobs();
+  return jobs.map((job) => ({ slug: job.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -95,7 +100,7 @@ export default async function JobDetailPage({ params }: PageProps) {
               Fill out the form below and we&apos;ll get back to you.
             </p>
             <div className="mt-5">
-              <ApplyForm jobId={job._id} />
+              <ApplyForm jobTitle={job.title} />
             </div>
           </div>
         </div>

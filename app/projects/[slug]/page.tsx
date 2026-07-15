@@ -2,12 +2,17 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, ExternalLink, User, Calendar, Briefcase } from "lucide-react";
-import { getProjectBySlug, getBlogsByProject, getReadingTime } from "@/lib/data";
+import { getProjectBySlug, getBlogsByProject, getReadingTime, getProjects } from "@/lib/data";
 import Thumbnail from "@/components/common/Thumbnail";
 import { getTechIcon } from "@/lib/techIcons";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  const projects = await getProjects();
+  return projects.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

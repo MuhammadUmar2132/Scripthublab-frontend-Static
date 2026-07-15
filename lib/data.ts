@@ -1,52 +1,40 @@
 import type { Project, Blog, Article, Job } from "./types";
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
-
-async function getJson<T>(path: string): Promise<T | null> {
-  try {
-    const res = await fetch(`${API_BASE_URL}${path}`, { cache: "no-store" });
-    if (!res.ok) return null;
-    const json = await res.json();
-    return json.data as T;
-  } catch {
-    return null;
-  }
-}
+import { PROJECTS, BLOGS, ARTICLES, JOBS } from "@/data/content";
 
 export async function getProjects(): Promise<Project[]> {
-  return (await getJson<Project[]>("/projects")) || [];
+  return PROJECTS;
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
-  return getJson<Project>(`/projects/${slug}`);
+  return PROJECTS.find((p) => p.slug === slug) || null;
 }
 
 export async function getBlogs(): Promise<Blog[]> {
-  return (await getJson<Blog[]>("/blogs")) || [];
+  return BLOGS.filter((b) => b.published);
 }
 
 export async function getBlogBySlug(slug: string): Promise<Blog | null> {
-  return getJson<Blog>(`/blogs/${slug}`);
+  return BLOGS.find((b) => b.slug === slug && b.published) || null;
 }
 
 export async function getBlogsByProject(projectId: string): Promise<Blog[]> {
-  return (await getJson<Blog[]>(`/blogs?project=${projectId}`)) || [];
+  return BLOGS.filter((b) => b.published && b.project === projectId);
 }
 
 export async function getArticles(): Promise<Article[]> {
-  return (await getJson<Article[]>("/articles")) || [];
+  return ARTICLES.filter((a) => a.published);
 }
 
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
-  return getJson<Article>(`/articles/${slug}`);
+  return ARTICLES.find((a) => a.slug === slug && a.published) || null;
 }
 
 export async function getJobs(): Promise<Job[]> {
-  return (await getJson<Job[]>("/jobs")) || [];
+  return JOBS.filter((j) => j.active);
 }
 
 export async function getJobBySlug(slug: string): Promise<Job | null> {
-  return getJson<Job>(`/jobs/${slug}`);
+  return JOBS.find((j) => j.slug === slug) || null;
 }
 
 export function getReadingTime(content: string): string {

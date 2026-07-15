@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { Star } from "lucide-react";
 import Button from "../ui/Button";
-import ContactForm from "../common/ContactForm";
 import DashboardMockup from "./DashboardMockup";
 
 const CLIENT_AVATARS = [12, 32, 47, 65];
@@ -10,7 +9,7 @@ const CLIENT_AVATARS = [12, 32, 47, 65];
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-linear-to-b from-blue-50/60 via-white to-white dark:from-slate-900 dark:via-slate-950 dark:to-slate-950">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_1.3fr_0.75fr] lg:items-center lg:gap-8 lg:px-8 lg:py-24">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-8 lg:px-8 lg:py-24">
         <div>
           <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white sm:text-5xl">
             Build Modern Solutions That Drive{" "}
@@ -62,8 +61,6 @@ export default function Hero() {
         </div>
 
         <DashboardMockup />
-
-        <ContactForm className="lg:sticky lg:top-24" />
       </div>
     </section>
   );

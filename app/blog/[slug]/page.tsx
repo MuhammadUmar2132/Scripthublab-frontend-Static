@@ -2,11 +2,16 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { getBlogBySlug } from "@/lib/data";
+import { getBlogBySlug, getBlogs } from "@/lib/data";
 import Thumbnail from "@/components/common/Thumbnail";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  const blogs = await getBlogs();
+  return blogs.map((blog) => ({ slug: blog.slug }));
 }
 
 function formatDate(iso: string) {

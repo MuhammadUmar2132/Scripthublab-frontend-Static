@@ -4,43 +4,37 @@ import React, { useState } from "react";
 import Input from "../ui/Input";
 import Textarea from "../ui/Textarea";
 import Button from "../ui/Button";
-import { applyToJob, uploadResume } from "@/lib/api";
 
+const WHATSAPP_NUMBER = "923215079537";
 const initialForm = { name: "", email: "", phone: "", coverLetter: "" };
 
-export default function ApplyForm({ jobId }: { jobId: string }) {
+export default function ApplyForm({ jobTitle }: { jobTitle: string }) {
   const [form, setForm] = useState(initialForm);
-  const [resumeFile, setResumeFile] = useState<File | null>(null);
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "error" | "success">("idle");
   const [message, setMessage] = useState("");
 
   function update<K extends keyof typeof initialForm>(key: K, value: string) {
     setForm((f) => ({ ...f, [key]: value }));
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    if (!resumeFile) {
-      setStatus("error");
-      setMessage("Please attach your resume.");
-      return;
-    }
+    const lines = [
+      `Job Application: ${jobTitle}`,
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      form.phone && `Phone: ${form.phone}`,
+      form.coverLetter && `Cover Letter: ${form.coverLetter}`,
+      "(Please attach your resume in the chat)",
+    ].filter(Boolean);
 
-    setStatus("loading");
-    setMessage("");
+    const text = encodeURIComponent(lines.join("\n"));
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank", "noopener,noreferrer");
 
-    try {
-      const resumeUrl = await uploadResume(resumeFile);
-      const res = await applyToJob({ jobId, ...form, resumeUrl });
-      setStatus("success");
-      setMessage(res.message || "Your application has been submitted.");
-      setForm(initialForm);
-      setResumeFile(null);
-    } catch (err) {
-      setStatus("error");
-      setMessage(err instanceof Error ? err.message : "Something went wrong.");
-    }
+    setStatus("success");
+    setMessage("Opening WhatsApp — please attach your resume there to complete your application.");
+    setForm(initialForm);
   }
 
   if (status === "success") {
@@ -83,18 +77,6 @@ export default function ApplyForm({ jobId }: { jobId: string }) {
         value={form.phone}
         onChange={(e) => update("phone", e.target.value)}
       />
-      <div>
-        <label htmlFor="apply-resume" className="mb-1 block text-xs font-medium text-slate-600 dark:text-slate-400">
-          Resume (PDF or Word) <span className="text-red-500">*</span>
-        </label>
-        <Input
-          id="apply-resume"
-          required
-          type="file"
-          accept=".pdf,.doc,.docx"
-          onChange={(e) => setResumeFile(e.target.files?.[0] || null)}
-        />
-      </div>
       <label htmlFor="apply-cover-letter" className="sr-only">
         Cover letter
       </label>
@@ -106,14 +88,12 @@ export default function ApplyForm({ jobId }: { jobId: string }) {
         onChange={(e) => update("coverLetter", e.target.value)}
       />
 
-      {status === "error" && (
-        <p role="alert" aria-live="assertive" className="text-sm text-red-500">
-          {message}
-        </p>
-      )}
+      <p className="text-xs text-slate-400 dark:text-slate-500">
+        You&apos;ll be redirected to WhatsApp to attach your resume and send your application.
+      </p>
 
-      <Button type="submit" withArrow className="w-full" disabled={status === "loading"}>
-        {status === "loading" ? "Submitting..." : "Submit Application"}
+      <Button type="submit" withArrow className="w-full">
+        Apply via WhatsApp
       </Button>
     </form>
   );

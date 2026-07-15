@@ -1,25 +1,21 @@
 "use client";
 
 import React, { useState } from "react";
-import { subscribeNewsletter } from "@/lib/api";
+
+const WHATSAPP_NUMBER = "923215079537";
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<"idle" | "success">("idle");
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setStatus("loading");
-    try {
-      await subscribeNewsletter(email);
-      setStatus("success");
-      setMessage("Subscribed! Thanks for joining.");
-      setEmail("");
-    } catch (err) {
-      setStatus("error");
-      setMessage(err instanceof Error ? err.message : "Something went wrong.");
-    }
+
+    const text = encodeURIComponent(`Please subscribe me to the newsletter: ${email}`);
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank", "noopener,noreferrer");
+
+    setStatus("success");
+    setEmail("");
   }
 
   return (
@@ -36,21 +32,14 @@ export default function NewsletterForm() {
         />
         <button
           type="submit"
-          disabled={status === "loading"}
-          className="whitespace-nowrap rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 disabled:opacity-60"
+          className="whitespace-nowrap rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
         >
-          {status === "loading" ? "Sending..." : "Subscribe"}
+          Subscribe
         </button>
       </div>
-      {message && (
-        <p
-          role="status"
-          aria-live="polite"
-          className={`mt-2 text-xs ${
-            status === "error" ? "text-red-400" : "text-emerald-400"
-          }`}
-        >
-          {message}
+      {status === "success" && (
+        <p role="status" aria-live="polite" className="mt-2 text-xs text-emerald-400">
+          Opening WhatsApp to confirm your subscription...
         </p>
       )}
     </form>

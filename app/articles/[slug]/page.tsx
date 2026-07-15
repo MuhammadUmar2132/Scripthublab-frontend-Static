@@ -2,11 +2,16 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { getArticleBySlug } from "@/lib/data";
+import { getArticleBySlug, getArticles } from "@/lib/data";
 import Thumbnail from "@/components/common/Thumbnail";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  const articles = await getArticles();
+  return articles.map((article) => ({ slug: article.slug }));
 }
 
 function formatDate(iso: string) {

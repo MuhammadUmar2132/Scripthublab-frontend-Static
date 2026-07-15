@@ -1,0 +1,182 @@
+import type { Project, Blog, Article, Job } from "@/lib/types";
+
+export const PROJECTS: Project[] = [
+  {
+    _id: "hotel-booking-system",
+    title: "Hotel Booking System",
+    slug: "hotel-booking-system",
+    category: "Web Application",
+    description:
+      "A full-featured hotel booking platform with real-time room availability, secure online payments, and an admin dashboard for managing bookings and rooms.",
+    tags: ["React", "Node.js", "MongoDB", "Express"],
+    featured: true,
+    client: "Hospitality Group",
+    duration: "3 months",
+    role: "Full-Stack Development",
+    createdAt: "2024-03-10T00:00:00.000Z",
+    updatedAt: "2024-03-10T00:00:00.000Z",
+  },
+  {
+    _id: "erp-dashboard",
+    title: "ERP Dashboard",
+    slug: "erp-dashboard",
+    category: "Business Solution",
+    description:
+      "An enterprise resource planning dashboard that unifies sales, inventory, HR, and finance data into a single real-time reporting view.",
+    tags: ["Next.js", "TypeScript", "Node.js", "MongoDB"],
+    featured: true,
+    client: "Manufacturing Firm",
+    duration: "5 months",
+    role: "Product & Backend Development",
+    createdAt: "2024-02-01T00:00:00.000Z",
+    updatedAt: "2024-02-01T00:00:00.000Z",
+  },
+  {
+    _id: "inventory-management",
+    title: "Inventory Management",
+    slug: "inventory-management",
+    category: "Web Application",
+    description:
+      "A stock and inventory management system with barcode scanning, low-stock alerts, and multi-warehouse support.",
+    tags: ["React", "Express", "MongoDB"],
+    featured: false,
+    client: "Retail Chain",
+    duration: "2 months",
+    role: "Frontend Development",
+    createdAt: "2024-01-15T00:00:00.000Z",
+    updatedAt: "2024-01-15T00:00:00.000Z",
+  },
+  {
+    _id: "real-estate-platform",
+    title: "Real Estate Platform",
+    slug: "real-estate-platform",
+    category: "Web Application",
+    description:
+      "A property listing platform with advanced search filters, map-based browsing, and agent-client messaging.",
+    tags: ["Next.js", "TypeScript", "MongoDB", "AWS"],
+    featured: true,
+    client: "Property Agency",
+    duration: "4 months",
+    role: "Full-Stack Development",
+    createdAt: "2023-12-05T00:00:00.000Z",
+    updatedAt: "2023-12-05T00:00:00.000Z",
+  },
+  {
+    _id: "restaurant-pos",
+    title: "Restaurant POS",
+    slug: "restaurant-pos",
+    category: "Business Solution",
+    description:
+      "A point-of-sale system for restaurants with table management, kitchen order tickets, and daily sales reporting.",
+    tags: ["React", "Node.js", "Express", "MongoDB"],
+    featured: false,
+    client: "Restaurant Chain",
+    duration: "3 months",
+    role: "Full-Stack Development",
+    createdAt: "2023-11-20T00:00:00.000Z",
+    updatedAt: "2023-11-20T00:00:00.000Z",
+  },
+  {
+    _id: "saas-dashboard",
+    title: "SaaS Dashboard",
+    slug: "saas-dashboard",
+    category: "SaaS Application",
+    description:
+      "A multi-tenant SaaS analytics dashboard with subscription billing, usage metrics, and role-based access control.",
+    tags: ["Next.js", "TypeScript", "Node.js", "AWS"],
+    featured: true,
+    client: "SaaS Startup",
+    duration: "6 months",
+    role: "Full-Stack Development",
+    createdAt: "2023-10-10T00:00:00.000Z",
+    updatedAt: "2023-10-10T00:00:00.000Z",
+  },
+];
+
+export const BLOGS: Blog[] = [
+  {
+    _id: "building-a-scalable-hotel-booking-system",
+    title: "Building a Scalable Hotel Booking System",
+    slug: "building-a-scalable-hotel-booking-system",
+    category: "Case Study",
+    excerpt: "How we designed real-time room availability without double bookings under load.",
+    content:
+      "Real-time availability is the hardest part of any booking system. In this case study we walk through the locking strategy, database indexing, and payment flow we used to keep bookings consistent under concurrent traffic.",
+    author: "ScriptHubLab Team",
+    published: true,
+    project: "hotel-booking-system",
+    createdAt: "2024-03-15T00:00:00.000Z",
+    updatedAt: "2024-03-15T00:00:00.000Z",
+  },
+  {
+    _id: "designing-a-multi-tenant-saas-dashboard",
+    title: "Designing a Multi-Tenant SaaS Dashboard",
+    slug: "designing-a-multi-tenant-saas-dashboard",
+    category: "Case Study",
+    excerpt: "Isolating tenant data while keeping infrastructure costs low.",
+    content:
+      "Multi-tenancy comes with tradeoffs between isolation and cost. Here's how we structured our database schema, subscription billing, and role-based dashboards to scale with the client's growing customer base.",
+    author: "ScriptHubLab Team",
+    published: true,
+    project: "saas-dashboard",
+    createdAt: "2023-10-18T00:00:00.000Z",
+    updatedAt: "2023-10-18T00:00:00.000Z",
+  },
+];
+
+export const ARTICLES: Article[] = [
+  {
+    _id: "top-10-javascript-frameworks-to-watch-in-2024",
+    title: "Top 10 JavaScript Frameworks to Watch in 2024",
+    slug: "top-10-javascript-frameworks-to-watch-in-2024",
+    category: "Web Development",
+    excerpt: "A roundup of the frameworks shaping frontend development this year.",
+    content:
+      "From React and Next.js to newer entrants like Solid and Qwik, the JavaScript ecosystem keeps evolving fast. In this article we cover the frameworks worth watching in 2024 and what makes each one stand out.",
+    author: "ScriptHubLab Team",
+    published: true,
+    createdAt: "2024-05-20T00:00:00.000Z",
+    updatedAt: "2024-05-20T00:00:00.000Z",
+  },
+  {
+    _id: "react-native-vs-flutter-which-one-is-better",
+    title: "React Native vs Flutter: Which One is Better?",
+    slug: "react-native-vs-flutter-which-one-is-better",
+    category: "Mobile Development",
+    excerpt: "Comparing performance, developer experience, and ecosystem maturity.",
+    content:
+      "Both React Native and Flutter let you ship to Android and iOS from one codebase, but they differ in rendering approach, tooling, and hiring pool. We break down which one fits which kind of project.",
+    author: "ScriptHubLab Team",
+    published: true,
+    createdAt: "2024-05-18T00:00:00.000Z",
+    updatedAt: "2024-05-18T00:00:00.000Z",
+  },
+  {
+    _id: "how-ai-is-transforming-businesses-in-2024",
+    title: "How AI is Transforming Businesses in 2024",
+    slug: "how-ai-is-transforming-businesses-in-2024",
+    category: "Technology",
+    excerpt: "Practical ways businesses are using AI beyond the hype.",
+    content:
+      "AI adoption has moved past chatbots into workflow automation, analytics, and personalization. This article looks at real, practical use cases businesses are shipping today.",
+    author: "ScriptHubLab Team",
+    published: true,
+    createdAt: "2024-05-15T00:00:00.000Z",
+    updatedAt: "2024-05-15T00:00:00.000Z",
+  },
+  {
+    _id: "why-your-business-needs-a-custom-software-solution",
+    title: "Why Your Business Needs a Custom Software Solution",
+    slug: "why-your-business-needs-a-custom-software-solution",
+    category: "Business",
+    excerpt: "When off-the-shelf software stops being enough.",
+    content:
+      "Off-the-shelf tools are great until your workflows outgrow them. Here's how to recognize the signs that it's time to invest in custom software, and what that process typically looks like.",
+    author: "ScriptHubLab Team",
+    published: true,
+    createdAt: "2024-05-12T00:00:00.000Z",
+    updatedAt: "2024-05-12T00:00:00.000Z",
+  },
+];
+
+export const JOBS: Job[] = [];
