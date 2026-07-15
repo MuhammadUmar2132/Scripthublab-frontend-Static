@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import ContactForm from "@/components/common/ContactForm";
 import { FacebookIcon, LinkedinIcon, InstagramIcon, TwitterIcon } from "@/components/common/SocialIcons";
 
 export const metadata: Metadata = {
@@ -77,8 +78,9 @@ export default function ContactPage() {
       </section>
 
       <section className="bg-white py-16 dark:bg-slate-950">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {CONTACT_INFO.map((item) => {
                   const Wrapper = item.href ? "a" : "div";
@@ -138,6 +140,12 @@ export default function ContactPage() {
                   ))}
                 </div>
               </div>
+            </div>
+
+            <ContactForm
+              title="Send Us a Message"
+              subtitle="Fill out the form and our team will reach out shortly."
+            />
           </div>
         </div>
       </section>

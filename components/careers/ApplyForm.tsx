@@ -30,11 +30,12 @@ export default function ApplyForm({ jobTitle }: { jobTitle: string }) {
     ].filter(Boolean);
 
     const text = encodeURIComponent(lines.join("\n"));
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank", "noopener,noreferrer");
 
     setStatus("success");
-    setMessage("Opening WhatsApp — please attach your resume there to complete your application.");
+    setMessage("Application ready! Redirecting you to WhatsApp — please attach your resume there.");
     setForm(initialForm);
+
+    window.location.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
   }
 
   if (status === "success") {

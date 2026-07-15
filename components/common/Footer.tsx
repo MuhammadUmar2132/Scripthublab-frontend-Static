@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { Phone, Mail, Globe } from "lucide-react";
 import Logo from "./Logo";
-import NewsletterForm from "./NewsletterForm";
 import { FacebookIcon, LinkedinIcon, InstagramIcon, TwitterIcon } from "./SocialIcons";
 import { SERVICES } from "@/data/home";
 
@@ -31,8 +30,8 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-linear-to-b from-blue-50/60 via-white to-white dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 text-slate-600">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5">
-          <div className="lg:col-span-1">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
             <Logo />
             <p className="mt-4 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
               We are a software development company providing top-notch IT
@@ -57,14 +56,6 @@ export default function Footer() {
               <FooterLink key={l.label} href={l.href} label={l.label} />
             ))}
           </FooterColumn>
-
-          <div>
-            <h4 className="text-sm font-semibold text-slate-900 dark:text-white">Newsletter</h4>
-            <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">
-              Stay updated with our latest news and articles.
-            </p>
-            <NewsletterForm />
-          </div>
         </div>
 
         <div className="mt-12 flex flex-col gap-4 border-t border-slate-200 dark:border-slate-800 pt-8 text-sm text-slate-500 dark:text-slate-400 sm:flex-row sm:items-center sm:justify-between">
