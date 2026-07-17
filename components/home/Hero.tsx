@@ -75,6 +75,9 @@ export default function Hero() {
           <DashboardMockup />
         </div>
 
+        <div className="lg:hidden animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+          <ContactForm />
+        </div>
         <div className="hidden lg:block animate-fade-in-up lg:sticky lg:top-24" style={{ animationDelay: '0.4s' }}>
           <ContactForm />
         </div>
