@@ -22,7 +22,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 px-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        <div className="mt-12 grid grid-cols-1 gap-5 px-4 sm:grid-cols-2 lg:grid-cols-2">
           {SERVICES.map((service, index) => (
             <div
               key={service.slug}
