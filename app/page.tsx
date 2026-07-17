@@ -4,6 +4,7 @@ import Services from "@/components/home/Services";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import Projects from "@/components/home/Projects";
 import Articles from "@/components/home/Articles";
+import LeadPopup from "@/components/common/LeadPopup";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <WhyChooseUs />
       <Projects />
       <Articles />
+      <LeadPopup />
     </>
   );
 }

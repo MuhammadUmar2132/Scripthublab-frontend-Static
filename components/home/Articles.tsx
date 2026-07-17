@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, Phone, Mail, Globe } from "lucide-react";
@@ -26,30 +28,31 @@ export default async function Articles() {
   return (
     <section className="bg-white py-20 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+        <div className="flex flex-wrap items-end justify-between gap-4 animate-fade-in-up px-4">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-blue-600">
               From Our Articles
             </span>
-            <h2 className="mt-3 text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">
+            <h2 className="mt-3 text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl lg:text-4xl">
               Latest Articles
             </h2>
           </div>
           <Link
             href="/articles"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 transition-transform duration-300 hover:translate-x-1"
           >
             View All Articles <ArrowRight className="size-4" />
           </Link>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-[2.9fr_1fr]">
+        <div className="mt-10 grid grid-cols-1 gap-6 px-4 lg:grid-cols-1 xl:grid-cols-[2.9fr_1fr]">
           {articles.length > 0 ? (
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {articles.map((article) => (
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {articles.map((article, index) => (
                 <article
                   key={article._id}
-                  className="overflow-hidden rounded-2xl border border-slate-100 dark:border-slate-800 bg-white transition-shadow hover:shadow-lg hover:shadow-slate-200/70 dark:bg-slate-900 dark:hover:shadow-none"
+                  className="overflow-hidden rounded-2xl border border-slate-100 dark:border-slate-800 bg-white transition-all duration-300 hover:shadow-lg hover:shadow-slate-200/70 hover:-translate-y-1 dark:bg-slate-900 dark:hover:shadow-none animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="h-28 w-full overflow-hidden">
                     <Thumbnail image={article.image} title={article.title} />
@@ -66,7 +69,7 @@ export default async function Articles() {
                     </h3>
                     <Link
                       href={`/articles/${article.slug}`}
-                      className="mt-2.5 inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600"
+                      className="mt-2.5 inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 transition-transform duration-300 group-hover:translate-x-1"
                     >
                       Read More <ArrowRight className="size-3" />
                     </Link>
@@ -80,7 +83,7 @@ export default async function Articles() {
             </div>
           )}
 
-          <div className="h-fit rounded-2xl border border-slate-100 dark:border-slate-800 bg-white p-6 shadow-xl shadow-slate-200/60 dark:bg-slate-900 dark:shadow-none">
+          <div className="h-fit rounded-2xl border border-slate-100 dark:border-slate-800 bg-white p-6 shadow-xl shadow-slate-200/60 transition-transform duration-300 hover:-translate-y-1 dark:bg-slate-900 dark:shadow-none animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white">
               Let&apos;s Build Something Great Together
             </h3>
@@ -108,7 +111,7 @@ export default async function Articles() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex size-9 items-center justify-center rounded-full bg-blue-50 text-blue-600 transition-colors hover:bg-blue-600 hover:text-white dark:bg-blue-500/10 dark:text-blue-400"
+                  className="flex size-9 items-center justify-center rounded-full bg-blue-50 text-blue-600 transition-all duration-300 hover:bg-blue-600 hover:text-white hover:scale-110 dark:bg-blue-500/10 dark:text-blue-400"
                 >
                   <Icon className="size-4" />
                 </a>
