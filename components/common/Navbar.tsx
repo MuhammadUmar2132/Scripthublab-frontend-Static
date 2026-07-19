@@ -52,32 +52,34 @@ export default function Navbar() {
         <div className="flex items-center gap-2 lg:hidden">
           <ThemeToggle />
           <button
-            className="inline-flex items-center justify-center rounded-lg border border-slate-200 p-2 dark:border-slate-700"
+            className="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-2 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
             aria-expanded={open}
           >
-            {open ? <X className="size-5 dark:text-slate-300" /> : <Menu className="size-5 dark:text-slate-300" />}
+            {open ? <X className="size-6 text-slate-700 dark:text-slate-300" /> : <Menu className="size-6 text-slate-700 dark:text-slate-300" />}
           </button>
         </div>
       </div>
 
       {open && (
-        <div className="border-t border-slate-100 dark:border-slate-800 bg-white px-4 py-4 lg:hidden dark:bg-slate-950">
-          <nav className="flex flex-col gap-4">
+        <div className="border-t border-slate-200 bg-white px-4 py-4 shadow-lg lg:hidden dark:border-slate-800 dark:bg-slate-950">
+          <nav className="flex flex-col gap-3">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`text-sm font-medium ${
-                  isActive(link.href) ? "text-blue-600 dark:text-blue-400" : "text-slate-600 dark:text-slate-300"
+                className={`rounded-lg px-4 py-3 text-base font-medium transition-colors ${
+                  isActive(link.href)
+                    ? "bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400"
+                    : "text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-900"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Button href="/contact" className="mt-2 w-full">
+            <Button href="/contact" className="mt-4 w-full">
               Get a Free Quote
             </Button>
           </nav>

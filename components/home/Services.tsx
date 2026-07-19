@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -22,11 +22,11 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 px-4 sm:grid-cols-2 lg:grid-cols-2">
+        <div className="mt-12 grid grid-cols-2 gap-4 px-4 sm:grid-cols-2 lg:grid-cols-2">
           {SERVICES.map((service, index) => (
             <div
               key={service.slug}
-              className="group rounded-2xl border border-slate-100 dark:border-slate-800 bg-white p-5 transition-all duration-300 hover:shadow-lg hover:shadow-slate-200/70 hover:-translate-y-1 dark:bg-slate-900 dark:hover:shadow-none animate-fade-in-up"
+              className="group rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-white p-5 transition-all duration-300 hover:shadow-lg hover:shadow-slate-200/70 hover:-translate-y-1 dark:bg-slate-900 dark:hover:shadow-none animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex size-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-transform duration-300 group-hover:scale-110 dark:bg-blue-500/10 dark:text-blue-400">
@@ -49,3 +49,4 @@ export default function Services() {
     </section>
   );
 }
+

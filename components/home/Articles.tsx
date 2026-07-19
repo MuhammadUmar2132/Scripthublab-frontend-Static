@@ -1,5 +1,4 @@
-"use client";
-
+﻿
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, Phone, Mail, Globe } from "lucide-react";
@@ -123,3 +122,4 @@ export default async function Articles() {
     </section>
   );
 }
+
