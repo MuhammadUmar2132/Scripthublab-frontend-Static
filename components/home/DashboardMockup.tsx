@@ -103,7 +103,6 @@ export default function DashboardMockup() {
           </div>
         </div>
       </div>
-      <div className="h-3 w-24 rounded-b-xl bg-slate-700" />
     </div>
   );
 }
