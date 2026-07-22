@@ -19,7 +19,7 @@ export default function Hero() {
             Custom Web & App Development Services That Drive{" "}
             <span className="text-blue-600">Real Growth</span>
           </h1>
-          <p className="mt-5 mx-auto max-w-md text-base leading-relaxed text-slate-500 dark:text-slate-400 sm:text-sm">
+          <p className="mt-3 mx-auto max-w-md text-base leading-relaxed text-slate-500 dark:text-slate-400 sm:text-base lg:text-lg">
             ScriptHubLab is a software development company delivering
             world-class web, mobile, and cloud solutions for businesses in
             Pakistan and around the globe.
@@ -42,30 +42,30 @@ export default function Hero() {
             </Button>
           </div>
 
-          <div className="mt-10 flex justify-center items-center gap-4">
-            <div className="flex -space-x-3">
+          <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4">
+            <div className="flex -space-x-2 sm:-space-x-3">
               {CLIENT_AVATARS.map((id) => (
                 <span
                   key={id}
-                  className="relative size-9 overflow-hidden rounded-full border-2 border-white dark:border-slate-950 sm:size-10"
+                  className="relative size-8 overflow-hidden rounded-full border-2 border-white dark:border-slate-950 sm:size-9 lg:size-10"
                 >
                   <Image
                     src={`https://i.pravatar.cc/72?img=${id}`}
                     alt=""
                     fill
-                    sizes="36px"
+                    sizes="32px"
                     className="object-cover"
                   />
                 </span>
               ))}
             </div>
-            <div>
-              <p className="text-sm font-medium text-slate-700 dark:text-slate-300">
+            <div className="text-center sm:text-left">
+              <p className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
                 Trusted by 100+ clients worldwide
               </p>
-              <div className="mt-0.5 flex gap-0.5 text-amber-400">
+              <div className="mt-0.5 flex justify-center sm:justify-start gap-0.5 text-amber-400">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="size-3.5 fill-amber-400 sm:size-4" />
+                  <Star key={i} className="size-3 fill-amber-400 sm:size-3.5 lg:size-4" />
                 ))}
               </div>
             </div>

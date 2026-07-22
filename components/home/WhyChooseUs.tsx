@@ -6,7 +6,7 @@ import { WHY_CHOOSE_US } from "@/data/home";
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-white py-14 dark:bg-slate-950">
+    <section className="bg-white py-8 sm:py-14 dark:bg-slate-950">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.6fr_1.4fr] lg:items-center lg:px-8">
         <div className="rounded-2xl bg-slate-50 p-6 sm:p-8 dark:bg-slate-900 animate-slide-in-left">
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600">
@@ -24,7 +24,7 @@ export default function WhyChooseUs() {
           </Button>
         </div>
 
-        <div className="grid grid-cols-1 gap-x-6 gap-y-7 px-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-7 px-4 sm:grid-cols-2 lg:grid-cols-4">
           {WHY_CHOOSE_US.map((item, index) => (
             <div key={item.title} className="flex gap-3 animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
               <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-transform duration-300 hover:scale-110 dark:bg-blue-500/10 dark:text-blue-400">

@@ -25,7 +25,7 @@ export default async function Articles() {
   const articles = (await getArticles()).slice(0, 4);
 
   return (
-    <section className="bg-white py-20 dark:bg-slate-950">
+    <section className="bg-white py-10 sm:py-20 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4 animate-fade-in-up px-4">
           <div>

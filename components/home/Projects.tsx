@@ -9,11 +9,11 @@ export default async function Projects() {
   const projects = (await getProjects()).slice(0, 6);
 
   return (
-    <section className="bg-white py-20 dark:bg-slate-950">
+    <section className="bg-white py-10 sm:py-20 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4 animate-fade-in-up px-4">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-600">
+            <span className="text-sm font-bold uppercase tracking-widest text-blue-600 sm:text-xs">
               Our Projects
             </span>
             <h2 className="mt-3 text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl lg:text-4xl">
@@ -28,7 +28,7 @@ export default async function Projects() {
           </Link>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        <div className="mt-6 grid grid-cols-1 gap-4 px-4 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {projects.map((project, index) => (
             <Link
               key={project._id}

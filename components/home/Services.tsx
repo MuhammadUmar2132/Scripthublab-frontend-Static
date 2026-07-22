@@ -8,7 +8,7 @@ import { SERVICES } from "@/data/home";
 
 export default function Services() {
   return (
-    <section className="bg-white py-20 dark:bg-slate-950">
+    <section className="bg-white py-10 sm:py-20 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center animate-fade-in-up px-4">
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600">

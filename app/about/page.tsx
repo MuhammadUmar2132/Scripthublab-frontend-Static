@@ -72,7 +72,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 dark:bg-slate-950">
+      <section className="bg-white py-10 sm:py-20 dark:bg-slate-950">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-blue-600">
@@ -127,7 +127,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 dark:bg-slate-950">
+      <section className="bg-white py-10 sm:py-20 dark:bg-slate-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-xs font-bold uppercase tracking-widest text-blue-600">
@@ -173,7 +173,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 dark:bg-slate-950">
+      <section className="bg-white py-10 sm:py-20 dark:bg-slate-950">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50/60 p-10 dark:bg-slate-900/60 text-center">
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-medium text-slate-600">
