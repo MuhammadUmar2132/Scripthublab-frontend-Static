@@ -53,9 +53,9 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           <ArrowLeft className="size-4" /> Back to Projects
         </Link>
 
-        <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[1.6fr_1fr] lg:items-start">
-          <div>
-            <div className="h-72 w-full overflow-hidden rounded-2xl border border-slate-100 dark:border-slate-800 sm:h-96">
+        <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-1 lg:items-start">
+          <div className="flex flex-col items-center">
+            <div className="h-72 w-full max-w-4xl overflow-hidden rounded-2xl border border-slate-100 dark:border-slate-800 sm:h-96">
               <Thumbnail image={project.image} title={project.title} />
             </div>
 
@@ -106,40 +106,40 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               </div>
             )}
 
-            {project.tags?.length > 0 && (
-              <div className="mt-8">
-                <h2 className="text-sm font-bold text-slate-900 dark:text-white">Tech Stack</h2>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => {
-                    const Icon = getTechIcon(tag);
-                    return (
-                      <span
-                        key={tag}
-                        className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600"
-                      >
-                        {Icon && <Icon className="size-3.5" />}
-                        {tag}
-                      </span>
-                    );
-                  })}
-                </div>
+            <div className="mt-8 max-w-4xl w-full">
+              <h2 className="text-sm font-bold text-slate-900 dark:text-white">Tech Stack</h2>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {project.tags.map((tag) => {
+                  const Icon = getTechIcon(tag);
+                  return (
+                    <span
+                      key={tag}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600"
+                    >
+                      {Icon && <Icon className="size-3.5" />}
+                      {tag}
+                    </span>
+                  );
+                })}
               </div>
-            )}
+            </div>
 
             {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
-              >
-                Visit Live Project <ExternalLink className="size-4" />
-              </a>
+              <div className="mt-8">
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
+                >
+                  Visit Live Project <ExternalLink className="size-4" />
+                </a>
+              </div>
             )}
           </div>
 
           {relatedBlogs.length > 0 && (
-            <div className="rounded-2xl border border-slate-100 dark:border-slate-800 bg-white p-5 dark:bg-slate-900 lg:sticky lg:top-24">
+            <div className="mt-12 max-w-4xl w-full mx-auto rounded-2xl border border-slate-100 dark:border-slate-800 bg-white p-5 dark:bg-slate-900">
               <h2 className="text-sm font-bold text-slate-900 dark:text-white">
                 Case Study Blogs ({relatedBlogs.length})
               </h2>

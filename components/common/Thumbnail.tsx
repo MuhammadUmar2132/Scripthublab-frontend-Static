@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { ImageIcon } from "lucide-react";
 
 export default function Thumbnail({
@@ -11,8 +12,18 @@ export default function Thumbnail({
   className?: string;
 }) {
   if (image) {
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img src={image} alt={title} className={`h-full w-full object-cover ${className}`} />;
+    return (
+      <div className={`relative h-full w-full ${className}`}>
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 100vw"
+          unoptimized
+        />
+      </div>
+    );
   }
 
   return (

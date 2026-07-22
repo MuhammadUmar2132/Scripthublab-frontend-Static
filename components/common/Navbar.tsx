@@ -63,7 +63,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-slate-200 bg-white px-4 py-4 shadow-lg lg:hidden dark:border-slate-800 dark:bg-slate-950">
+        <div className="border-t border-blue-500/30 bg-blue-600 px-4 py-4 shadow-lg lg:hidden">
           <nav className="flex flex-col gap-3">
             {NAV_LINKS.map((link) => (
               <Link
@@ -72,14 +72,14 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className={`rounded-lg px-4 py-3 text-base font-medium transition-colors ${
                   isActive(link.href)
-                    ? "bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400"
-                    : "text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-900"
+                    ? "bg-white/20 text-white"
+                    : "text-white/90 hover:bg-white/10"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Button href="/contact" className="mt-4 w-full">
+            <Button href="/contact" className="mt-4 w-full bg-white text-blue-600 hover:bg-blue-50">
               Get a Free Quote
             </Button>
           </nav>

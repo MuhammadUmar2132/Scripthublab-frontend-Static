@@ -2,6 +2,23 @@ import type { Project, Blog, Article, Job } from "@/lib/types";
 
 export const PROJECTS: Project[] = [
   {
+    _id: "ideoversity-main-portal",
+    title: "Ideoversity Main Portal",
+    slug: "ideoversity-main-portal",
+    category: "Learning Management System",
+    description:
+      "A comprehensive Learning Management System 4.0 empowering future technology leaders. Features four distinct portals: Super Admin for system administration, Staff Portal for faculty management, Student Portal for learning journey access, and Teacher Portal for teaching management. Built with modern technologies to deliver seamless educational experiences.",
+    tags: ["Next.js", "React", "Node.js", "MongoDB"],
+    liveUrl: "https://ideoversity-main-portal.vercel.app/",
+    featured: true,
+    client: "IDEO GROUP",
+    duration: "4 months",
+    role: "Full-Stack Development",
+    image: "/Capture.PNG",
+    createdAt: "2024-06-01T00:00:00.000Z",
+    updatedAt: "2024-06-01T00:00:00.000Z",
+  },
+  {
     _id: "hotel-booking-system",
     title: "Hotel Booking System",
     slug: "hotel-booking-system",

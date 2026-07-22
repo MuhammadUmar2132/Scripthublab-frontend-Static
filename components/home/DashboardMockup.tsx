@@ -31,15 +31,15 @@ const FLOATING_ICONS = [
 
 export default function DashboardMockup() {
   return (
-    <div className="relative mx-auto flex w-full max-w-lg items-center justify-center py-10">
-      {FLOATING_ICONS.map(({ Icon, className, iconClass }, i) => (
-        <span
-          key={i}
-          className={`absolute z-20 hidden items-center justify-center rounded-full bg-white shadow-lg shadow-slate-200/80 ring-1 ring-slate-100 sm:flex ${className}`}
-        >
-          <Icon className={iconClass} />
-        </span>
-      ))}
+    <div className="relative mx-auto flex w-full max-w-lg items-center justify-center py-10 sm:py-10">
+        {FLOATING_ICONS.map(({ Icon, className, iconClass }, i) => (
+          <span
+            key={i}
+            className={`absolute z-20 hidden items-center justify-center rounded-full bg-white shadow-lg shadow-slate-200/80 ring-1 ring-slate-100 sm:flex ${className}`}
+          >
+            <Icon className={iconClass} />
+          </span>
+        ))}
 
       <div className="relative flex w-full items-end justify-center">
         <div className="relative w-full rounded-t-2xl border-8 border-slate-800 bg-slate-800 shadow-2xl">
@@ -78,7 +78,7 @@ export default function DashboardMockup() {
             </div>
           </div>
         </div>
-        <div className="absolute -bottom-6 -right-4 hidden w-24 shrink-0 rounded-[1.4rem] border-4 border-slate-800 bg-slate-800 shadow-2xl sm:block">
+        <div className="absolute -bottom-6 -right-4 w-20 shrink-0 rounded-[1.4rem] border-4 border-slate-800 bg-slate-800 shadow-2xl sm:w-24">
           <div className="overflow-hidden rounded-[1.1rem] bg-white">
             <div className="flex justify-center py-1.5">
               <span className="h-1 w-6 rounded-full bg-slate-200" />
