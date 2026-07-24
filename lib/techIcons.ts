@@ -1,0 +1,60 @@
+import type { IconType } from "react-icons";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiTypescript,
+  SiJavascript,
+  SiMongodb,
+  SiExpress,
+  SiFlutter,
+  SiDocker,
+  SiGithub,
+  SiTailwindcss,
+  SiPostgresql,
+  SiFirebase,
+  SiGraphql,
+  SiRedis,
+  SiVuedotjs,
+  SiAngular,
+  SiHtml5,
+  SiChartdotjs,
+  SiStripe,
+} from "react-icons/si";
+import { FaAws } from "react-icons/fa";
+
+const TECH_ICON_MAP: Record<string, IconType> = {
+  react: SiReact,
+  "react.js": SiReact,
+  "next.js": SiNextdotjs,
+  nextjs: SiNextdotjs,
+  "node.js": SiNodedotjs,
+  nodejs: SiNodedotjs,
+  typescript: SiTypescript,
+  javascript: SiJavascript,
+  mongodb: SiMongodb,
+  express: SiExpress,
+  "express.js": SiExpress,
+  flutter: SiFlutter,
+  aws: FaAws,
+  docker: SiDocker,
+  github: SiGithub,
+  tailwind: SiTailwindcss,
+  tailwindcss: SiTailwindcss,
+  postgresql: SiPostgresql,
+  postgres: SiPostgresql,
+  firebase: SiFirebase,
+  graphql: SiGraphql,
+  redis: SiRedis,
+  vue: SiVuedotjs,
+  "vue.js": SiVuedotjs,
+  angular: SiAngular,
+  html5: SiHtml5,
+  "chart.js": SiChartdotjs,
+  chartjs: SiChartdotjs,
+  stripe: SiStripe,
+};
+
+export function getTechIcon(name: string): IconType | undefined {
+  return TECH_ICON_MAP[name.trim().toLowerCase()];
+}
